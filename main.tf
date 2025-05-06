@@ -18,27 +18,8 @@ terraform {
   }
 }
 
-variable "AWS_ACCESS_KEY_ID" {
-  description = "AWS Access Key ID"
-  type        = string
-}
-
-variable "AWS_SECRET_ACCESS_KEY" {
-  description = "AWS Secret Access Key"
-  type        = string
-}
-
-variable "AWS_SESSION_TOKEN" {
-  description = "AWS Session Token (se estiver usando credenciais temporárias)"
-  type        = string
-  default     = ""
-}
-
 provider "aws" {
-  region        = "us-east-1"
-  access_key    = var.AWS_ACCESS_KEY_ID
-  secret_key    = var.AWS_SECRET_ACCESS_KEY
-  session_token = var.AWS_SESSION_TOKEN
+  region = "us-east-1"
 }
 
 resource "aws_db_instance" "mysql" {

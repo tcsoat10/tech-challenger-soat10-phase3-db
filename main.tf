@@ -19,7 +19,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region  = "us-east-1"
   profile = "voclabs/user4059879=lucassouzaramos7@gmail.com"
 }
 

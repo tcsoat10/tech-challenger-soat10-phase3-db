@@ -93,10 +93,15 @@ jobs:
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
       run: terraform fmt -check
-
-    # Generates an execution plan for Terraform
+    
+    # Dinamically generates a Terraform variable file with the values of the secrets stored in GitHub
+    - name: Generate Terraform Variables File
+      run: |
+        echo "db_username=${{ secrets.TF_VAR_DB_USERNAME }}" > terraform.auto.tfvars
+        echo "db_password=${{ secrets.TF_VAR_DB_PASSWORD }}" >> terraform.auto.tfvars
+    
     - name: Terraform Plan
-      run: terraform plan -input=false -var="db_username=${{ secrets.TF_VAR_DB_USERNAME }}" -var="db_password=${{ secrets.TF_VAR_DB_PASSWORD }}"
+      run: terraform plan -input=false
       
 
       # On push to "main", build or change infrastructure according to Terraform configuration files

@@ -97,8 +97,8 @@ jobs:
     # Dinamically generates a Terraform variable file with the values of the secrets stored in GitHub
     - name: Generate Terraform Variables File
       run: |
-        echo "db_username=${{ secrets.TF_VAR_DB_USERNAME }}\n" > terraform.auto.tfvars
-        echo "db_password=${{ secrets.TF_VAR_DB_PASSWORD }}" >> terraform.auto.tfvars
+        echo "db_username= "%s"\n' "${{ secrets.TF_VAR_DB_USERNAME }}" > terraform.auto.tfvars
+        echo "db_password= "%s"\n' "${{ secrets.TF_VAR_DB_PASSWORD }}" >> terraform.auto.tfvars
         terraform fmt
     
     - name: Terraform Plan

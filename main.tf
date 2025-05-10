@@ -27,7 +27,7 @@ resource "aws_vpc" "example" {
 }
 
 resource "aws_db_instance" "mysql" {
-  identifier          = "mysql-db_10soat"
+  identifier          = "mysql-db_soat"
   engine              = "mysql"
   engine_version      = "8.0"
   instance_class      = "db.t3.micro"

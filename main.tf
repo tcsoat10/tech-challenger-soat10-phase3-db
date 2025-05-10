@@ -27,7 +27,7 @@ resource "aws_vpc" "example" {
 }
 
 resource "aws_db_instance" "mysql" {
-  identifier          = "mysql-db"
+  identifier          = "mysql-db-soat"
   engine              = "mysql"
   engine_version      = "8.0"
   instance_class      = "db.t3.micro"
@@ -37,4 +37,5 @@ resource "aws_db_instance" "mysql" {
   password            = var.db_password
   skip_final_snapshot = true
   publicly_accessible = true
+  apply_immediately   = true
 }

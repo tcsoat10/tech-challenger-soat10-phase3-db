@@ -36,7 +36,7 @@ data "aws_subnets" "subnets" {
 data "aws_security_group" "eks_sg" {
   filter {
     name   = "group-name"
-    values = ["soat10tc-cluster-eks-sg"]
+    values = ["eks-cluster-sg-soat10tc-cluster-eks*"]
   }
   filter {
     name   = "vpc-id"
